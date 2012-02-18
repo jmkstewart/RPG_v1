@@ -1,0 +1,6 @@
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\Utilities\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\Utilities\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\Utilities\bin\x86\Debug\Utilities.dll
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\Utilities\bin\x86\Debug\Utilities.pdb
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\Utilities\obj\x86\Debug\Utilities.dll
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\Utilities\obj\x86\Debug\Utilities.pdb

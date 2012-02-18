@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="Model.Battle.BattleObject">
+    <Name>player1</Name>
+    <HP>10</HP>
+    <MP>10</MP>
+    <Id>1</Id>
+    <Str>5</Str>
+    <Speed>60</Speed>
+    <CurrentTimeToAction>1000</CurrentTimeToAction>
+    <Enemy>false</Enemy>
+    <AttackList>
+      <Item>Weapon</Item>
+      <Item>Fist</Item>
+    </AttackList>
+    <MagicList>
+      <Item>Fire</Item>
+      <Item>Ice</Item>
+      <Item>Water</Item>
+      <Item>Lightning</Item>
+      <Item>Ground</Item>
+      <Item>Air</Item>
+    </MagicList>
+  </Asset>
+</XnaContent>

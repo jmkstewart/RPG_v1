@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG_v1", "RPG_v1\RPG_v1\RPG_v1.csproj", "{4ACD82C0-66C2-4A97-8536-E3EFF4F83445}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG_v1Content", "RPG_v1\RPG_v1Content\RPG_v1Content.contentproj", "{FCDD742B-28D1-47AC-9DC1-D90E016AFA8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{E601AD7B-2195-40B9-B2B0-AB6AA6C67999}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "View", "View", "{047FC293-3218-456C-B36E-1ECB9F393A19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controller", "Controller", "{27359E98-463B-4086-B056-DB565D16093B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{8870EC90-5B77-413E-8C82-E5A35119A507}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameController", "GameController\GameController.csproj", "{12BEAF6B-C3A8-4116-B41C-91F9A117859F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{CEE5CD15-F75F-4858-AB69-15D4E91AF4E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{246B7DF2-3BFA-4EEC-9C76-51404ACB0C12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4ACD82C0-66C2-4A97-8536-E3EFF4F83445}.Debug|x86.ActiveCfg = Debug|x86
+		{4ACD82C0-66C2-4A97-8536-E3EFF4F83445}.Debug|x86.Build.0 = Debug|x86
+		{4ACD82C0-66C2-4A97-8536-E3EFF4F83445}.Release|x86.ActiveCfg = Release|x86
+		{4ACD82C0-66C2-4A97-8536-E3EFF4F83445}.Release|x86.Build.0 = Release|x86
+		{FCDD742B-28D1-47AC-9DC1-D90E016AFA8D}.Debug|x86.ActiveCfg = Debug|x86
+		{FCDD742B-28D1-47AC-9DC1-D90E016AFA8D}.Release|x86.ActiveCfg = Release|x86
+		{8870EC90-5B77-413E-8C82-E5A35119A507}.Debug|x86.ActiveCfg = Debug|x86
+		{8870EC90-5B77-413E-8C82-E5A35119A507}.Debug|x86.Build.0 = Debug|x86
+		{8870EC90-5B77-413E-8C82-E5A35119A507}.Release|x86.ActiveCfg = Release|x86
+		{8870EC90-5B77-413E-8C82-E5A35119A507}.Release|x86.Build.0 = Release|x86
+		{12BEAF6B-C3A8-4116-B41C-91F9A117859F}.Debug|x86.ActiveCfg = Debug|x86
+		{12BEAF6B-C3A8-4116-B41C-91F9A117859F}.Debug|x86.Build.0 = Debug|x86
+		{12BEAF6B-C3A8-4116-B41C-91F9A117859F}.Release|x86.ActiveCfg = Release|x86
+		{12BEAF6B-C3A8-4116-B41C-91F9A117859F}.Release|x86.Build.0 = Release|x86
+		{CEE5CD15-F75F-4858-AB69-15D4E91AF4E5}.Debug|x86.ActiveCfg = Debug|x86
+		{CEE5CD15-F75F-4858-AB69-15D4E91AF4E5}.Debug|x86.Build.0 = Debug|x86
+		{CEE5CD15-F75F-4858-AB69-15D4E91AF4E5}.Release|x86.ActiveCfg = Release|x86
+		{CEE5CD15-F75F-4858-AB69-15D4E91AF4E5}.Release|x86.Build.0 = Release|x86
+		{246B7DF2-3BFA-4EEC-9C76-51404ACB0C12}.Debug|x86.ActiveCfg = Debug|x86
+		{246B7DF2-3BFA-4EEC-9C76-51404ACB0C12}.Debug|x86.Build.0 = Debug|x86
+		{246B7DF2-3BFA-4EEC-9C76-51404ACB0C12}.Release|x86.ActiveCfg = Release|x86
+		{246B7DF2-3BFA-4EEC-9C76-51404ACB0C12}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8870EC90-5B77-413E-8C82-E5A35119A507} = {E601AD7B-2195-40B9-B2B0-AB6AA6C67999}
+		{CEE5CD15-F75F-4858-AB69-15D4E91AF4E5} = {047FC293-3218-456C-B36E-1ECB9F393A19}
+		{12BEAF6B-C3A8-4116-B41C-91F9A117859F} = {27359E98-463B-4086-B056-DB565D16093B}
+	EndGlobalSection
+EndGlobal

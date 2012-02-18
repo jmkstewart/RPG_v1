@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <Asset Type="Model.Battle.BattleObject">
+    <Name>enemy1</Name>
+    <HP>100</HP>
+    <MP>100</MP>
+    <Id>0</Id>
+    <Str>3</Str>
+    <Speed>40</Speed>
+    <CurrentTimeToAction>1000</CurrentTimeToAction>
+    <Enemy>true</Enemy>
+    <AttackList>
+      <Item>Scratch</Item>
+    </AttackList>
+    <MagicList></MagicList>
+  </Asset>
+</XnaContent>

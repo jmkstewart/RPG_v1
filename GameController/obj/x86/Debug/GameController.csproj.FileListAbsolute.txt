@@ -1,0 +1,12 @@
+c:\users\jake\documents\visual studio 2010\Projects\RPG_v1\GameController\bin\x86\Debug\GameController.dll
+c:\users\jake\documents\visual studio 2010\Projects\RPG_v1\GameController\bin\x86\Debug\GameController.pdb
+c:\users\jake\documents\visual studio 2010\Projects\RPG_v1\GameController\bin\x86\Debug\Model.dll
+c:\users\jake\documents\visual studio 2010\Projects\RPG_v1\GameController\bin\x86\Debug\Model.pdb
+c:\users\jake\documents\visual studio 2010\Projects\RPG_v1\GameController\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\jake\documents\visual studio 2010\Projects\RPG_v1\GameController\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+c:\users\jake\documents\visual studio 2010\Projects\RPG_v1\GameController\obj\x86\Debug\GameController.dll
+c:\users\jake\documents\visual studio 2010\Projects\RPG_v1\GameController\obj\x86\Debug\GameController.pdb
+c:\users\jake\documents\visual studio 2010\Projects\RPG_v1\GameController\bin\x86\Debug\View.dll
+c:\users\jake\documents\visual studio 2010\Projects\RPG_v1\GameController\bin\x86\Debug\View.pdb
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\GameController\bin\x86\Debug\Utilities.dll
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\GameController\bin\x86\Debug\Utilities.pdb
