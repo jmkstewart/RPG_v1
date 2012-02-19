@@ -269,3 +269,5 @@ C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86
 C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\BattleXML\Character1.xnb
 C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\BattleXML\Actions.xnb
 C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\BattleXML\Enemy1.xnb
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\Misc\Select.xnb
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\BattleXML\Enemy2.xnb

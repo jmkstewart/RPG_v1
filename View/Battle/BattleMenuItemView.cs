@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 namespace View.Battle {
     public interface MenuItemSelectListener {
         void ItemClicked(string item);
+        void ItemSelected(string objectName);
     }
 
     public class BattleMenuItemView : IBattleObjectView {

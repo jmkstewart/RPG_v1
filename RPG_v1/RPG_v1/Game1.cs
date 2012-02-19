@@ -25,7 +25,6 @@ namespace RPG_v1 {
 
             this.graphics.PreferredBackBufferWidth = 1680;
             this.graphics.PreferredBackBufferHeight = 1050;
-            //this.graphics.IsFullScreen = true;
 
             _gameController = new GeneralGameController();
         }
@@ -38,7 +37,11 @@ namespace RPG_v1 {
         /// </summary>
         protected override void Initialize() {
             // TODO: Add your initialization logic here
-
+            
+            IntPtr ptr = this.Window.Handle;
+            System.Windows.Forms.Form form = (System.Windows.Forms.Form)System.Windows.Forms.Control.FromHandle(ptr);
+            //form.Size = new System.Drawing.Size(1280, 720);
+            
             base.Initialize();
         }
 

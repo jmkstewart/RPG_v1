@@ -2279,6 +2279,15 @@
       <Time>2012-02-05T17:02:29.1046088+00:00</Time>
     </Item>
     <Item>
+      <Source>Misc\Select.png</Source>
+      <Name>Misc\Select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\Misc\Select.xnb</Output>
+      <Time>2012-02-19T14:48:34.0850341+00:00</Time>
+    </Item>
+    <Item>
       <Source>Fonts\MenuFont.spritefont</Source>
       <Name>Fonts\MenuFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -2294,7 +2303,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\BattleXML\Character1.xnb</Output>
-      <Time>2012-02-18T18:41:46.5490233+00:00</Time>
+      <Time>2012-02-19T22:12:40.7250595+00:00</Time>
     </Item>
     <Item>
       <Source>BattleXML\Actions.xml</Source>
@@ -2303,7 +2312,7 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\BattleXML\Actions.xnb</Output>
-      <Time>2012-02-18T18:47:00.3834036+00:00</Time>
+      <Time>2012-02-19T22:12:10.7600633+00:00</Time>
     </Item>
     <Item>
       <Source>BattleXML\Enemy1.xml</Source>
@@ -2312,7 +2321,16 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\BattleXML\Enemy1.xnb</Output>
-      <Time>2012-02-18T18:41:53.106679+00:00</Time>
+      <Time>2012-02-19T21:42:25.1401793+00:00</Time>
+    </Item>
+    <Item>
+      <Source>BattleXML\Enemy2.xml</Source>
+      <Name>BattleXML\Enemy2</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\BattleXML\Enemy2.xnb</Output>
+      <Time>2012-02-19T21:42:29.7101793+00:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -2328,7 +2346,7 @@
     <Assemblies>
       <Assembly>
         <Key>C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\Model\bin\x86\Debug\Model.dll</Key>
-        <Value>2012-02-18T18:40:33.3777069+00:00</Value>
+        <Value>2012-02-19T21:43:00.6921793+00:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>

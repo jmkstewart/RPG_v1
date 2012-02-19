@@ -1,9 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="Model.Battle.BattleObject">
+    <Texture>Player/Duder</Texture>
     <Name>player1</Name>
-    <HP>10</HP>
+    <HP>100</HP>
+    <HPMax>100</HPMax>
     <MP>10</MP>
+    <MPMax>10</MPMax>
     <Id>1</Id>
     <Str>5</Str>
     <Speed>60</Speed>
@@ -20,6 +23,8 @@
       <Item>Lightning</Item>
       <Item>Ground</Item>
       <Item>Air</Item>
+      <Item>Heal</Item>
     </MagicList>
-  </Asset>
+  
+</Asset>
 </XnaContent>

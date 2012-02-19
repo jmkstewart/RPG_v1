@@ -7,9 +7,12 @@ namespace Model.Battle {
     public class BattleObject {
         public static int TimeToAction = 1000;
 
+        public string Texture { get; set; }
         public string Name { get; set; }
         public int HP { get; set; }
+        public int HPMax { get; set; }
         public int MP { get; set; }
+        public int MPMax { get; set; }
         public int Id { get; set; }
         public int Str { get; set; }
         public int Speed { get; set; }

@@ -69,6 +69,12 @@
         <Elements></Elements>
         <StatusEffects></StatusEffects>
       </Item>
+      <Item>
+        <Name>Heal</Name>
+        <Damage>-9</Damage>
+        <Elements></Elements>
+        <StatusEffects></StatusEffects>
+      </Item>
     </ActionList>
   </Asset>
 </XnaContent>

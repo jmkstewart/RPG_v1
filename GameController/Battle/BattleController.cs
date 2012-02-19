@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
+using View.Battle;
 using Model;
 using Model.Battle;
-using View.Battle;
-using Microsoft.Xna.Framework.Input;
-using System.Xml.Linq;
 
 namespace GameController.Battle {
     public class BattleController : IController, MenuItemSelectListener {
@@ -26,6 +26,8 @@ namespace GameController.Battle {
         private Queue<BattleObject> _activeBattleObjectsToProcess;
         private List<Keys> _processedPressedKeys;
         private int _timeSinceLastBattleTimeUpdate = 100;
+        private bool _selecting = false;
+        private string _actionName;
 
         private int _id;
         private Player _player;
@@ -49,12 +51,14 @@ namespace GameController.Battle {
 
             LoadEnemies(_id);
             LoadParty(_player);
-            _battleView = new BattleView(game, _playerParty, _enemyParty);
+            _battleView = new BattleView(game, _playerParty, _enemyParty, this);
         }
 
         private void LoadEnemies(int id) {
-            var enemy1 = _game.Content.Load<BattleObject>(@"BattleXML/Enemy1"); //new BattleObject() { HP = 10, MP = 10, Name = "bort", Id = 0, Speed = 40 };
+            var enemy1 = _game.Content.Load<BattleObject>(@"BattleXML/Enemy1");
+            var enemy2 = _game.Content.Load<BattleObject>(@"BattleXML/Enemy2");
             _enemyParty.Add(enemy1);
+            _enemyParty.Add(enemy2);
         }
 
         private void LoadParty(Player player) {
@@ -63,11 +67,23 @@ namespace GameController.Battle {
         }
 
         public void ItemClicked(string item) {
-            // depending on the attack allow the user to select target
-            // skipping that for now
+            _selecting = true;
+            _battleView.EnemyPartyView[0].Selected = true;
+            _actionName = item;
+        }
 
-            // do actual attack
-            Attack(_activeBattleObject, _enemyParty[0], item);
+        private List<BattleObject> GetAllBattleObjects() {
+            return _enemyParty.Union(_playerParty).ToList();
+        }
+
+        public void ItemSelected(string objectName) {
+            var selectedObject = GetAllBattleObjects().First(x => x.Name == objectName);
+
+            Attack(_activeBattleObject, selectedObject, _actionName);
+
+            _battleView.GetAllBattleObjectViews().ForEach(x => x.Selected = false);
+            _selecting = false;
+            _actionName = "";
         }
 
         private void Attack(BattleObject from, BattleObject to, string actionText) {
@@ -91,7 +107,9 @@ namespace GameController.Battle {
 
                 // start damage animation
 
-                _battleState = BattleState.ActiveTime;
+                if(_activeBattleObjectsToProcess.Count == 0) {
+                    _battleState = BattleState.ActiveTime;
+                }
                 _activeBattleObject = null;
                 _battleMenuView = null;
             }
@@ -101,11 +119,49 @@ namespace GameController.Battle {
             if(_battleState == BattleState.ActiveTime) {
                 UpdateActive(gameTime);
             } else {
-                UpdateStopped(gameTime);
+                if(!_selecting) {
+                    UpdateStopped(gameTime);
+                }
+                UpdateSelection();
             }
+
+            UpdateDeath();
 
             _battleView.Update(gameTime);
         }
+
+        private void UpdateDeath() {
+            var deadEnemies = _enemyParty.Where(x => x.HP <= 0);
+            var deadPlayers = _playerParty.Where(x => x.HP <= 0);
+
+            foreach(var deadEnemy in deadEnemies) {
+                _battleView.RemoveEnemy(deadEnemy.Name);
+            }
+            _enemyParty = _enemyParty.Except(deadEnemies).ToList();
+
+            foreach(var deadPlayer in deadPlayers) {
+                _battleView.RemovePlayer(deadPlayer.Name);
+            }
+            _playerParty = _playerParty.Except(deadPlayers).ToList();
+        }
+
+        private void UpdateSelection() {
+            var pressedKeys = Keyboard.GetState().GetPressedKeys();
+
+            foreach(var key in pressedKeys) {
+                if(!_processedPressedKeys.Contains(key)) {
+                    _processedPressedKeys.Add(key);
+                    if(_selecting) {
+                        _battleView.SelectionKeyPressed(key);
+                    } else {
+                        _battleMenuView.KeyPressed(key);
+                    }
+                }
+            }
+
+            _processedPressedKeys = pressedKeys.ToList();
+        }
+
 
         private void UpdateActive(GameTime gameTime) {
             // count down one speed unit for each 100 milliseconds
@@ -127,17 +183,6 @@ namespace GameController.Battle {
                     _battleMenuView = new BattleObjectMenuView(_game, _activeBattleObject, this);
                 }
             }
-
-            // do keyboard navigation of the menu
-            var pressedKeys = Keyboard.GetState().GetPressedKeys();
-            foreach(var key in pressedKeys) {
-                if(!_processedPressedKeys.Contains(key)) {
-                    _processedPressedKeys.Add(key);
-                    _battleMenuView.KeyPressed(key);
-                }
-            }
-
-            _processedPressedKeys = pressedKeys.ToList();
         }
 
         public void BattleTimeUpdate() {

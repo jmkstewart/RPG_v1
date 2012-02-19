@@ -28,7 +28,11 @@ namespace View.Battle {
                 position.Y += (int)_verticalOffset;
                 var colour = ColourReference.Orange;
                 colour.A += (byte)(_verticalOffset * 2);
-                spriteBatch.DrawString(_font, _damageText.ToString(), position, colour, 0, Vector2.Zero, 1, SpriteEffects.None, 0);
+                string damageText = _damageText.ToString();
+                if(_damageText < 0) {
+                    damageText = "+" + Math.Abs(_damageText).ToString();
+                }
+                spriteBatch.DrawString(_font, damageText, position, colour, 0, Vector2.Zero, 1, SpriteEffects.None, 0);
             }
         }
 

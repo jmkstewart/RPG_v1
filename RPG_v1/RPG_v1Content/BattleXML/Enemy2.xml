@@ -2,12 +2,12 @@
 <XnaContent>
   <Asset Type="Model.Battle.BattleObject">
     <Texture>Monsters/mon027</Texture>
-    <Name>enemy1</Name>
-    <HP>100</HP>
-    <HPMax>100</HPMax>
+    <Name>enemy2</Name>
+    <HP>120</HP>
+    <HPMax>120</HPMax>
     <MP>100</MP>
     <MPMax>100</MPMax>
-    <Id>0</Id>
+    <Id>2</Id>
     <Str>3</Str>
     <Speed>40</Speed>
     <CurrentTimeToAction>1000</CurrentTimeToAction>

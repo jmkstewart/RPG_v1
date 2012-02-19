@@ -251,7 +251,9 @@ Content\Player\sorlosheet.xnb
 Content\Monsters\mon027.xnb
 Content\Player\Duder.xnb
 Content\Background\beach (do not use)-1920x1200.xnb
+Content\Misc\Select.xnb
 Content\Fonts\MenuFont.xnb
 Content\BattleXML\Character1.xnb
 Content\BattleXML\Actions.xnb
 Content\BattleXML\Enemy1.xnb
+Content\BattleXML\Enemy2.xnb
