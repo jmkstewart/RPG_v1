@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="Model.Battle.BattleObject">
-    <Texture>Player/Duder</Texture>
+    <Texture>Player/Duder,Player/Duder2</Texture>
     <Name>player1</Name>
     <HP>100</HP>
     <HPMax>100</HPMax>
@@ -12,8 +12,9 @@
     <Speed>60</Speed>
     <CurrentTimeToAction>1000</CurrentTimeToAction>
     <Enemy>false</Enemy>
+    <Status>Poison</Status>
     <AttackList>
-      <Item>Weapon</Item>
+      <Item>Hammer</Item>
       <Item>Fist</Item>
     </AttackList>
     <MagicList>
@@ -25,6 +26,8 @@
       <Item>Air</Item>
       <Item>Heal</Item>
     </MagicList>
-  
-</Asset>
+    <ItemList>
+      <Item>Potion</Item>
+    </ItemList>
+  </Asset>
 </XnaContent>

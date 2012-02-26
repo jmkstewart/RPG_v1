@@ -18,8 +18,10 @@ namespace Model.Battle {
         public int Speed { get; set; }
         public int CurrentTimeToAction { get; set; }
         public bool Enemy { get; set; }
+        public string Status { get; set; }
         public List<string> AttackList { get; set; }
         public List<string> MagicList { get; set; }
+        public List<string> ItemList { get; set; }
 
         public BattleObject() {
             CurrentTimeToAction = TimeToAction;

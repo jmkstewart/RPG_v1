@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Utilities;
 using Microsoft.Xna.Framework.Input;
+using View.Utility;
 
 namespace View.Battle {
     public interface MenuItemSelectListener {
@@ -18,8 +19,7 @@ namespace View.Battle {
 
         private List<BattleMenuItemView> _childMenuItems;
 
-        private Texture2D _timeOutlineTexture;
-        private Texture2D _timeInnerTexture;
+        private Texture2D _singleColourTexture;
         private SpriteFont _menuFont;
         private Game _game;
 
@@ -27,6 +27,8 @@ namespace View.Battle {
         public bool Selected { get; set; }
         public bool HighLighted { get; set; }
         public bool Root { get; set; }
+
+        public readonly int Width = 220;
 
         public BattleMenuItemView(Game game, MenuItemSelectListener clickListener) {
             _childMenuItems = new List<BattleMenuItemView>();
@@ -37,10 +39,8 @@ namespace View.Battle {
         }
 
         private void LoadView() {
-            _timeOutlineTexture = new Texture2D(_game.GraphicsDevice, 1, 1);
-            _timeOutlineTexture.SetData(new Color[] { Color.White });
-            _timeInnerTexture = new Texture2D(_game.GraphicsDevice, 1, 1);
-            _timeInnerTexture.SetData(new Color[] { Color.White });
+            _singleColourTexture = new Texture2D(_game.GraphicsDevice, 1, 1);
+            _singleColourTexture.SetData(new Color[] { Color.White });
             _menuFont = _game.Content.Load<SpriteFont>("Fonts/MenuFont");
         }
 
@@ -53,22 +53,32 @@ namespace View.Battle {
                 var position = new Vector2(0, 0);
                 Color mainColour = HighLighted ? Color.SandyBrown : ColourReference.Green;
                 if(Selected) mainColour = Color.Silver;
-                spriteBatch.Draw(_timeOutlineTexture, GetMenuOutlineTextureRect(position, offset), null, ColourReference.Blue, 0, Vector2.Zero, SpriteEffects.None, 0);
-                spriteBatch.Draw(_timeInnerTexture, GetMenuInnerTextureRect(position, offset), null, mainColour, 0, Vector2.Zero, SpriteEffects.None, 0);
+
+                var outerRect = GetMenuOutlineTextureRect(position, offset);
+                DrawingHelper.DrawBlackOutline(spriteBatch, _singleColourTexture, outerRect);
+                spriteBatch.Draw(_singleColourTexture, outerRect, null, ColourReference.Blue, 0, Vector2.Zero, SpriteEffects.None, 0);
+
+                var innerRect = GetMenuInnerTextureRect(position, offset);
+                spriteBatch.Draw(_singleColourTexture, innerRect, null, mainColour, 0, Vector2.Zero, SpriteEffects.None, 0);
+
                 spriteBatch.DrawString(_menuFont, Text, position + offset + new Vector2(20, 10), ColourReference.Orange, 0, Vector2.Zero, 1, SpriteEffects.None, 0);
             }
 
-            // if selected then draw the child items
             if(Selected) {
+                var currentMiddle = offset.Y + 30;
+                var heightOfNextRow = _childMenuItems.Count * 60;
+                var newStart = currentMiddle - (heightOfNextRow / 2);
+                offset.Y = newStart;
+
                 foreach(var childMenuItem in _childMenuItems) {
-                    childMenuItem.Draw(gameTime, spriteBatch, offset + new Vector2(220, 30));
+                    childMenuItem.Draw(gameTime, spriteBatch, offset + new Vector2(Width + 2, 0));
                     offset.Y += 60;
                 }
             }
         }
 
         private Rectangle GetMenuOutlineTextureRect(Vector2 position, Vector2 offset) {
-            return new Rectangle((int)position.X + (int)offset.X, (int)position.Y + (int)offset.Y, 220, 60);
+            return new Rectangle((int)position.X + (int)offset.X, (int)position.Y + (int)offset.Y, Width, 60);
         }
 
         private Rectangle GetMenuInnerTextureRect(Vector2 position, Vector2 offset) {
@@ -110,11 +120,20 @@ namespace View.Battle {
                 } else if(key == Keys.A) {
                     MoveLeft();
                 } else if(key == Keys.E) {
-                    Click();
+                    if(IsLeaf()) {
+                        Click();
+                    } else {
+                        MoveRight();
+                    }
                 }
             } else {
                 _childMenuItems.ForEach(x => x.KeyPressed(key));
             }
+        }
+
+        private bool IsLeaf() {
+            var highlighted = GetHighlightedIndex();
+            return _childMenuItems[highlighted]._childMenuItems.Count == 0;
         }
 
         private void Click() {
@@ -166,6 +185,28 @@ namespace View.Battle {
 
         public void SetFirstSelected() {
             _childMenuItems[0].HighLighted = true;
+        }
+
+        public int CurrentWidth {
+            get {
+                var depth = GetDepthOfHighlightedItem();
+                return (depth - 1) * Width;  // minus 1 to ignore the depth of the root node
+            }
+        }
+
+        public int GetDepthOfHighlightedItem() {
+            if(HighLighted) {
+                return 1;
+            } else {
+                foreach(var childMenuItemView in _childMenuItems) {
+                    var depth = childMenuItemView.GetDepthOfHighlightedItem();
+                    if(depth > 0) {
+                        return depth + 1;
+                    }
+                }
+            }
+
+            return 0;
         }
     }
 }

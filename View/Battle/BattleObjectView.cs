@@ -10,9 +10,10 @@ using Model.Battle;
 namespace View.Battle {
     public class BattleObjectView : InteractableBattleObjectView {
         private Game _game;
-        private Texture2D _texture;
-        private Texture2D _timeOutlineTexture;
-        private Texture2D _timeInnerTexture;
+        private List<Texture2D> _textures;
+        private int _texture;
+
+        private SpriteFont _font;
         private Texture2D _selectTexture;
         private BattleObject _battleObject;
         private BattleDamageText _damageText = null;
@@ -20,6 +21,9 @@ namespace View.Battle {
         public BattlePosition CurrentBattlePosition { get; set; }
         public string Name { get { return _battleObject.Name; } }
         public bool Selected { get; set; }
+
+        private readonly int _timeBetweenFrames = 250;
+        private int _timeToFrameChange = 250;
 
         public BattleObjectView(Game game, BattleObject battleObject, BattlePosition battlePosition) {
             _game = game;
@@ -30,31 +34,25 @@ namespace View.Battle {
         
         private void LoadView(int id) {
             // load from a file based on the id
-            _texture = _game.Content.Load<Texture2D>(_battleObject.Texture);
-            _selectTexture = _game.Content.Load<Texture2D>(@"Misc/Select");
+            _textures = new List<Texture2D>();
+            foreach(var texture in _battleObject.Texture.Split(',')) {
+                _textures.Add(_game.Content.Load<Texture2D>(texture));
+            }
+            _texture = 0;
 
-            _timeOutlineTexture = new Texture2D(_game.GraphicsDevice, 1, 1);
-            _timeOutlineTexture.SetData(new Color[] { Color.White });
-            _timeInnerTexture = new Texture2D(_game.GraphicsDevice, 1, 1);
-            _timeInnerTexture.SetData(new Color[] { Color.White });
+            _selectTexture = _game.Content.Load<Texture2D>(@"Misc/Select");
+            _font = _game.Content.Load<SpriteFont>("Fonts/TrayNameFont");
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 offset) {
-            spriteBatch.Draw(_texture, offset, _texture.Bounds, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0);
-
-            // time
-            spriteBatch.Draw(_timeOutlineTexture, GetTimeOutlineTextureRect(offset), ColourReference.Blue);
-            spriteBatch.Draw(_timeInnerTexture, GetTimeInnerTextureRect(offset), ColourReference.Green);
-
-            // health
-            spriteBatch.Draw(_timeOutlineTexture, GetHealthOutlineTextureRect(offset), Color.Silver);
-            spriteBatch.Draw(_timeInnerTexture, GetHealthInnerTextureRect(offset), Color.Red);
+            spriteBatch.Draw(_textures[_texture], offset, _textures[_texture].Bounds, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0);
 
             // selection
             if(Selected) {
                 var rect = _selectTexture.Bounds;
                 rect.Offset((int)offset.X, (int)offset.Y - (_selectTexture.Bounds.Height + 10));
                 spriteBatch.Draw(_selectTexture, rect, Color.White);
+                spriteBatch.DrawString(_font, _battleObject.Name, new Vector2(rect.X, rect.Y + rect.Height), Color.White);
             }
 
             if(_damageText != null) {
@@ -63,6 +61,15 @@ namespace View.Battle {
         }
 
         public void Update(GameTime gameTime) {
+            _timeToFrameChange -= gameTime.ElapsedGameTime.Milliseconds;
+            if(_timeToFrameChange <= 0) {
+                _timeToFrameChange += _timeBetweenFrames;
+                _texture++;
+                if(_texture >= _textures.Count) {
+                    _texture = 0;
+                }
+            }
+
             if(_damageText != null) {
                 _damageText.Update(gameTime);
 
@@ -75,41 +82,6 @@ namespace View.Battle {
         public void StartDamageText(int damage) {
             _damageText = new BattleDamageText(damage);
             _damageText.LoadContent(_game);
-        }
-
-        private Rectangle GetTimeOutlineTextureRect(Vector2 position) {
-            return new Rectangle((int)position.X + 30, (int)position.Y + _texture.Bounds.Height + 30, 120, 40);
-        }
-
-        // this can be a pixel out, blarg
-        private Rectangle GetTimeInnerTextureRect(Vector2 position) {
-            var rect = GetTimeOutlineTextureRect(position);
-            rect.X += 5;
-            rect.Y += 5;
-            rect.Width -= 10;
-            rect.Height -= 10;
-
-            var widthOverPossibleTime = (float)rect.Width / BattleObject.TimeToAction;
-            rect.Width = (int)(widthOverPossibleTime * _battleObject.CurrentTimeToAction);
-
-            return rect;
-        }
-
-        private Rectangle GetHealthOutlineTextureRect(Vector2 position) {
-            return new Rectangle((int)position.X, (int)position.Y + _texture.Bounds.Height + 130, 120, 40);
-        }
-
-        private Rectangle GetHealthInnerTextureRect(Vector2 position) {
-            var rect = GetHealthOutlineTextureRect(position);
-            rect.X += 5;
-            rect.Y += 5;
-            rect.Width -= 10;
-            rect.Height -= 10;
-
-            var widthOverPossibleTime = (float)rect.Width / _battleObject.HPMax;
-            rect.Width = (int)(widthOverPossibleTime * _battleObject.HP);
-
-            return rect;
         }
     }
 }

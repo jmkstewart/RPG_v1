@@ -271,3 +271,9 @@ C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86
 C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\BattleXML\Enemy1.xnb
 C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\Misc\Select.xnb
 C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\BattleXML\Enemy2.xnb
+C:\Users\Jake\documents\visual studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\Background\Battle Background Cliff.xnb
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\Fonts\DisplayBarFont.xnb
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\Fonts\TrayNameFont.xnb
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\Monsters\role mat combine sized.xnb
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\Monsters\role mat sized.xnb
+C:\Users\Jake\Documents\Visual Studio 2010\Projects\RPG_v1\RPG_v1\RPG_v1\bin\x86\Debug\Content\Player\Duder2.xnb

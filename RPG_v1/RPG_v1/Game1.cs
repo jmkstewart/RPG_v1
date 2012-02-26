@@ -23,8 +23,10 @@ namespace RPG_v1 {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            this.graphics.PreferredBackBufferWidth = 1680;
-            this.graphics.PreferredBackBufferHeight = 1050;
+            this.graphics.PreferredBackBufferWidth = 1280;
+            this.graphics.PreferredBackBufferHeight = 720;
+            this.IsMouseVisible = true;
+            //this.graphics.IsFullScreen = true;
 
             _gameController = new GeneralGameController();
         }

@@ -14,6 +14,8 @@ namespace View.Battle {
         private BattleObject _activeBattleObject;
         private BattleMenuItemView _menuItemView;
 
+        public int CurrentWidth { get { return _menuItemView.CurrentWidth; } }
+
         public BattleObjectMenuView(Game game, BattleObject activeBattleObject, MenuItemSelectListener selectListener) {
             _activeBattleObject = activeBattleObject;
             _menuItemView = new BattleMenuItemView(game, selectListener) { Root = true, Selected = true };
@@ -33,14 +35,17 @@ namespace View.Battle {
                 optionTree.GetFirstChild("Magic").AddChild(magic);
             }
 
+            optionTree.AddChild("Item");
+            foreach(var item in activeBattleObject.ItemList) {
+                optionTree.GetFirstChild("Item").AddChild(item);
+            }
+
             _menuItemView.SetTree(optionTree);
             _menuItemView.SetFirstSelected();
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Vector2 offset) {
-            // always draw the base menu
-            Vector2 position = new Vector2(30, 30);
-            _menuItemView.Draw(gameTime, spriteBatch, position + offset);
+            _menuItemView.Draw(gameTime, spriteBatch, offset);
         }
 
         public void KeyPressed(Keys key) {

@@ -94,13 +94,18 @@
   <ItemGroup>
     <Compile Include="Battle\BattleBackgroundView.cs" />
     <Compile Include="Battle\BattleDamageText.cs" />
+    <Compile Include="Battle\BattleTrayCharacterView.cs" />
     <Compile Include="Battle\BattleMenuItemView.cs" />
+    <Compile Include="Battle\BattleTrayView.cs" />
     <Compile Include="Battle\BattleObjectMenuView.cs" />
     <Compile Include="Battle\BattleObjectView.cs" />
     <Compile Include="Battle\BattleView.cs" />
+    <Compile Include="Battle\DisplayBarAndText.cs" />
     <Compile Include="Battle\IBattleObjectView.cs" />
     <Compile Include="Battle\InteractableBattleObjectView.cs" />
     <Compile Include="ColourReference.cs" />
+    <Compile Include="ScreenTransition.cs" />
+    <Compile Include="Utility\DrawingHelper.cs" />
     <Compile Include="World\WorldComponentDrawer.cs" />
     <Compile Include="IDrawableObject.cs" />
     <Compile Include="World\MapView.cs" />

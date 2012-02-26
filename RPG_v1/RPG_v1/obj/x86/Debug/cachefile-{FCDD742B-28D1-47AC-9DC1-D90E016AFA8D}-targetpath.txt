@@ -252,8 +252,14 @@ Content\Monsters\mon027.xnb
 Content\Player\Duder.xnb
 Content\Background\beach (do not use)-1920x1200.xnb
 Content\Misc\Select.xnb
+Content\Background\Battle Background Cliff.xnb
+Content\Monsters\role mat combine sized.xnb
+Content\Monsters\role mat sized.xnb
 Content\Fonts\MenuFont.xnb
+Content\Fonts\DisplayBarFont.xnb
+Content\Fonts\TrayNameFont.xnb
 Content\BattleXML\Character1.xnb
 Content\BattleXML\Actions.xnb
 Content\BattleXML\Enemy1.xnb
 Content\BattleXML\Enemy2.xnb
+Content\Player\Duder2.xnb

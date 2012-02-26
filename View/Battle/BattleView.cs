@@ -15,10 +15,12 @@ namespace View.Battle {
 
         private BattleBackgroundView _battleBackgroundView;
         private MenuItemSelectListener _menuItemSelectListener;
+        private BattleTrayView _battleTrayView;
 
         public BattleView(Game game, List<BattleObject> playerParty, List<BattleObject> enemyParty, MenuItemSelectListener menuItemSelectListener) {
             _battleBackgroundView = new BattleBackgroundView(game);
             _menuItemSelectListener = menuItemSelectListener;
+            _battleTrayView = new BattleTrayView(game, playerParty);
             PlayerPartyView = new List<InteractableBattleObjectView>();
             EnemyPartyView = new List<InteractableBattleObjectView>();
 
@@ -46,13 +48,15 @@ namespace View.Battle {
             _battleBackgroundView.Draw(gameTime, spriteBatch, offset);
 
             for(int i = 0; i < PlayerPartyView.Count; i++) {
-                var position = new Vector2(200 * (i + 1), 500) + offset;
+                var position = new Vector2(100, 50 + (50 * (i + 1))) + offset;
                 PlayerPartyView[i].Draw(gameTime, spriteBatch, position);
             }
             for(int i = 0; i < EnemyPartyView.Count; i++) {
-                var position = new Vector2(200 * (i + 1), 100) + offset;
+                var position = new Vector2(1000, (150 * (i + 1))) + offset;
                 EnemyPartyView[i].Draw(gameTime, spriteBatch, position);
             }
+
+            _battleTrayView.Draw(gameTime, spriteBatch, new Vector2(60, 510));
         }
 
         public void RemoveEnemy(string name) {

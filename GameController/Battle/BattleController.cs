@@ -208,7 +208,11 @@ namespace GameController.Battle {
             _battleView.Draw(gameTime, spriteBatch, Vector2.Zero);
 
             if(_battleMenuView != null) {
-                _battleMenuView.Draw(gameTime, spriteBatch, new Vector2(800, 400));
+                var windowWidth = _game.Window.ClientBounds.Width;
+                var width = _battleMenuView.CurrentWidth;
+                var x = (windowWidth / 2) - (width / 2) - 220;
+
+                _battleMenuView.Draw(gameTime, spriteBatch, new Vector2(x, 400));
             }
         }
     }

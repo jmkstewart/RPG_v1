@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <Asset Type="Model.Battle.BattleObject">
-    <Texture>Monsters/mon027</Texture>
+    <Texture>Monsters/role mat sized</Texture>
     <Name>enemy1</Name>
     <HP>100</HP>
     <HPMax>100</HPMax>
@@ -12,9 +12,11 @@
     <Speed>40</Speed>
     <CurrentTimeToAction>1000</CurrentTimeToAction>
     <Enemy>true</Enemy>
+    <Status></Status>
     <AttackList>
       <Item>Scratch</Item>
     </AttackList>
     <MagicList></MagicList>
+    <ItemList></ItemList>
   </Asset>
 </XnaContent>

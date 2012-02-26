@@ -26,8 +26,8 @@ namespace View.Battle {
             if(Enabled) {
                 var position = offset;
                 position.Y += (int)_verticalOffset;
-                var colour = ColourReference.Orange;
-                colour.A += (byte)(_verticalOffset * 2);
+                var colour = Color.Black;
+                colour.A += (byte)(_verticalOffset * 4);
                 string damageText = _damageText.ToString();
                 if(_damageText < 0) {
                     damageText = "+" + Math.Abs(_damageText).ToString();

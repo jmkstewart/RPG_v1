@@ -58,6 +58,12 @@
         <StatusEffects></StatusEffects>
       </Item>
       <Item>
+        <Name>Hammer</Name>
+        <Damage>50</Damage>
+        <Elements></Elements>
+        <StatusEffects></StatusEffects>
+      </Item>
+      <Item>
         <Name>Fist</Name>
         <Damage>4</Damage>
         <Elements></Elements>
@@ -72,6 +78,12 @@
       <Item>
         <Name>Heal</Name>
         <Damage>-9</Damage>
+        <Elements></Elements>
+        <StatusEffects></StatusEffects>
+      </Item>
+      <Item>
+        <Name>Potion</Name>
+        <Damage>-10</Damage>
         <Elements></Elements>
         <StatusEffects></StatusEffects>
       </Item>
